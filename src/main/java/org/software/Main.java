@@ -7,16 +7,17 @@ import org.software.employee.FullTimeEmployee;
 import org.software.employee.PartTimeEmployee;
 import org.software.repositories.EmployeeRepository;
 
+import javax.swing.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Main {
     public static void main(String[] args) {
-        DatabaseConnectionManager.getInstance().connect();
-        EmployeeRepository employeeRepository=new EmployeeRepository();
-        List<Employee>employees=employeeRepository.getAll();
-       List<Employee> filterdEmployee = employees.stream()
-                .filter(employee -> employee.getDepartmentId()==3)
-               .toList();
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                GUI.INSTANCE.setVisible(true);
+            }
+        });
     }
 }

@@ -20,6 +20,7 @@ public class EmployeeRepository {
     private final Connection connection;
 
     public EmployeeRepository() {
+        DatabaseConnectionManager.getInstance().connect();
         this.connection = DatabaseConnectionManager.getInstance().getConnection();
     }
 
